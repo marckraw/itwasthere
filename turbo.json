@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalDotEnv": [".env.local", ".env"],
+  "globalEnv": [
+    "NEXT_PUBLIC_LINEAR_PERSONAL_ACCESS_KEY",
+    "NEXT_PUBLIC_TODOIST_API_TOKEN",
+    "NEXT_PUBLIC_AUTHORIZATION_SECRET",
+    "GITHUB_SECRET",
+    "GITHUB_ID",
+    "OPENAI_API_KEY",
+    "ADMIN_EMAIL",
+    "ADMIN_NAME",
+    "ADMIN_PROFILE_URL",
+    "AUTHORIZATION_SECRET"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "NEXT_PUBLIC_LINEAR_PERSONAL_ACCESS_KEY",
+        "NEXT_PUBLIC_TODOIST_API_TOKEN",
+        "NEXT_PUBLIC_AUTHORIZATION_SECRET",
+        "GITHUB_SECRET",
+        "GITHUB_ID",
+        "OPENAI_API_KEY",
+        "ADMIN_EMAIL",
+        "ADMIN_NAME",
+        "ADMIN_PROFILE_URL",
+        "AUTHORIZATION_SECRET"
+      ],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
